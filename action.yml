@@ -1,5 +1,5 @@
-name: My Action
-description: Action description
+name: '{{ NAME }}'
+description: '{{ DESCRIPTION }}'
 author: PSModule
 branding:
   icon: upload-cloud
@@ -17,10 +17,11 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: My Action
+    - name: '{{ NAME }}'
       shell: pwsh
       working-directory: ${{ inputs.working-directory }}
       env:
         GITHUB_ACTION_INPUT_subject: ${{ inputs.subject }}
       run: |
-        $GITHUB_ACTION_PATH/scripts/main.ps1
+        # '{{ NAME }}'
+        . "$env:GITHUB_ACTION_PATH\scripts\main.ps1" -Verbose
