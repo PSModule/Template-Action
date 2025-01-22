@@ -18,10 +18,10 @@ runs:
   using: composite
   steps:
     - name: '{{ NAME }}'
-      shell: pwsh
-      working-directory: ${{ inputs.working-directory }}
+      uses: PSModule/GitHub-Script@v1
       env:
         GITHUB_ACTION_INPUT_subject: ${{ inputs.subject }}
-      run: |
-        # '{{ NAME }}'
-        . "${{ github.action_path }}\scripts\main.ps1" -Verbose
+      with:
+        Script: |
+          # '{{ NAME }}'
+          ${{ github.action_path }}\scripts\main.ps1
