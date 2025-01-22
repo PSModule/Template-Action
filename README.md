@@ -1,4 +1,4 @@
-# Template-action
+# Template-Action
 
 A template repository for GitHub Actions
 
