@@ -20,8 +20,8 @@ runs:
     - name: '{{ NAME }}'
       uses: PSModule/GitHub-Script@v1
       env:
-        GITHUB_ACTION_INPUT_subject: ${{ inputs.subject }}
+        {{ ORG }}_{{ NAME }}_INPUT_subject: ${{ inputs.subject }}
       with:
         Script: |
           # '{{ NAME }}'
-          ${{ github.action_path }}\scripts\main.ps1
+          ${{ github.action_path }}/scripts/main.ps1
