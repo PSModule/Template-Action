@@ -1,12 +1,12 @@
-name: {{ NAME }}
-description: {{ DESCRIPTION }}
+name: Template-Action
+description: A template action for GitHub Actions using PowerShell
 author: PSModule
 branding:
   icon: upload-cloud
   color: white
 
 inputs:
-  subject:
+  Subject:
     description: The subject to greet
     required: false
     default: World
@@ -33,16 +33,15 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: {{ NAME }}
+    - name: Template-Action
       uses: PSModule/GitHub-Script@v1
       env:
-        {{ ORG }}_{{ NAME }}_INPUT_subject: ${{ inputs.subject }}
+        PSMOUDLE_TEMPLATE_ACTION_INPUT_Subject: ${{ inputs.Subject }}
       with:
+        Name: Template-Action
         Debug: ${{ inputs.Debug }}
         Prerelease: ${{ inputs.Prerelease }}
         Verbose: ${{ inputs.Verbose }}
         Version: ${{ inputs.Version }}
         WorkingDirectory: ${{ inputs.WorkingDirectory }}
-        Script: |
-          # {{ NAME }}
-          ${{ github.action_path }}/scripts/main.ps1
+        Script: ${{ github.action_path }}/scripts/main.ps1
