@@ -3,7 +3,7 @@
 [CmdletBinding()]
 param(
     [Parameter()]
-    [string] $Subject = $env:<ORG_NAME>_<REPO_NAME>_INPUT_subject
+    [string] $Subject = $env:PSMOUDLE_TEMPLATE_ACTION_INPUT_Subject
 )
 
 begin {
