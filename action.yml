@@ -34,7 +34,7 @@ runs:
   using: composite
   steps:
     - name: Template-Action
-      uses: PSModule/GitHub-Script@v1
+      uses: PSModule/GitHub-Script@4f9c58a26940a15fb039e4065c63cc11467ab224 # v1
       env:
         PSMOUDLE_TEMPLATE_ACTION_INPUT_Subject: ${{ inputs.Subject }}
       with:

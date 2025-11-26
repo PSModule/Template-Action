@@ -23,7 +23,9 @@ jobs:
     steps:
       # Need to check out as part of the test, as its a local action
       - name: Checkout repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
+        with:
+          persist-credentials: false
 
       - name: Action-Test
         uses: ./
