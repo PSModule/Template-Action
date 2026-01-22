@@ -3,7 +3,7 @@ name: Auto-Release
 run-name: "Auto-Release - [${{ github.event.pull_request.title }} #${{ github.event.pull_request.number }}] by @${{ github.actor }}"
 
 on:
-  pull_request_target: # zizmor: ignore[dangerous-triggers] Required for write permissions to create releases and comment on PRs. Mitigated by checking out base branch only.
+  pull_request:
     branches:
       - main
     types:
@@ -28,7 +28,6 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
-          ref: ${{ github.event.pull_request.base.ref }} # Checkout base branch, not PR code
           persist-credentials: false
 
       - name: Auto-Release
